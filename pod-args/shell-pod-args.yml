@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shell
+  labels:
+    name: pod-args
+    type: shell
+spec:
+  containers:
+    - name: ubuntu
+      image: ubuntu
+      args:
+        - /bin/sh
+        - "-c"
+        - "echo this is my path: $PATH"
+
+
+# this type of arguments is shell type
+# you can use this command to get the arguments
+# kubectl logs pod-name

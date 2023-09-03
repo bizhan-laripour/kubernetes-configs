@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-args
+spec:
+  restartPolicy: OnFailure
+  containers:
+    - name: ubuntu-pod-args
+      image: ubuntu
+      args:
+        - "date"
+
+# you can get the arguments in docker container with this command in docker
+# sudo docker run ubuntu date
+# but in a container that runs in a pod you can use this command
+# kubectl logs pod-name
+
