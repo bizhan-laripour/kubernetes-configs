@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: grace-period
+spec:
+  terminationGracePeriodSeconds: 1
+  containers:
+    - name: grace-period
+      image: nginx
+      args:
+        - "sleep"
+        - "3600"
+
+# this pod in order to its arguments must sleep for 3600 seconds when you create it
+# if in this time you delete this pod you have to wait until this 3600 seconds last
+# for get rid of this we use {terminationGracePeriodSeconds} and set it with time that you want to last
+# when you delete the pod
