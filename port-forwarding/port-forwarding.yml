@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: port-forwarding
+spec:
+  containers:
+    - name: nginx
+      image: nginx
+      ports:
+        - name: "web-port"
+          containerPort: 80
+          protocol: TCP
+
+
+# for por forwarding of the pod port to the host port we can use this imperative command
+# sudo kubectl port-forward  pod-name  host-port : node-port (8080:80)

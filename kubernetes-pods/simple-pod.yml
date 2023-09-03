@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: nginx
+      image: nginx:1.14.2
+      ports:
+        - containerPort: 80
+
+# for creating pod with a yml file might run
+# sudo kubectl apply -f simple-pod.yml
+
+# for getting all the pods might use this command
+# sudo kubectl get pod
+# sudo kubectl get pod -o wide     more information
+
+# if you want to get the yaml file of a specific pod you might run this command
+# sudo kubectl get pod your-pod -o yaml
+
+# to get yaml file of all pods
+# sudo kubectl get pod -o yaml

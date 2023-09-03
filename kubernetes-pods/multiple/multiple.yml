@@ -1,0 +1,27 @@
+# we cant use this type of creating pods in one yaml file in this manner
+
+apiVersion: v1
+items:
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: multiple-nginx-1
+      labels:
+        dept: IT
+        team: devops
+    spec:
+      containers:
+        - name: multiple-nginx-1
+          image: nginx
+  - apiVersion: v1
+    kind: Pod
+    metadata:
+      name: multiple-nginx-2
+      labels:
+        dept: IT
+        team: java
+    spec:
+      containers:
+        - name: multiple-nginx-2
+          image: nginx
+
