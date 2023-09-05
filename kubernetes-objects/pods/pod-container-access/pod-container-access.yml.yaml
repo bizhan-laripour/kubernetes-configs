@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-container-access
+  labels:
+    app: pod-container-access
+spec:
+  containers:
+    - name: pod-container-access
+      image: nginx
+      imagePullPolicy: IfNotPresent
+  restartPolicy: OnFailure
+
+
+# you can access to the pod terminal with command bellow
+# sudo kubectl exec -it pod-name -- bash
+  

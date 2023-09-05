@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: second-replicaset
+spec:
+  selector:
+    matchLabels:
+      app: nginx-app2
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx-app2
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+
+# if there are some pods up and running and then we want to config a replicaSet for them we can use above config
+# the predefined pods for this replicaset are first-pod.yml and second-pod.yml
