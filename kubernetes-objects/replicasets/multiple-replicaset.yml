@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: multiple-replicaset-1
+spec:
+  selector:
+    matchLabels:
+      app: nginx-app2
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx-app2
+    spec:
+      containers:
+        - name: nginx-app2
+          image: nginx
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: multiple-replicaset-2
+spec:
+  selector:
+    matchLabels:
+      app: nginx-app2
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx-app2
+    spec:
+      containers:
+        - name: nginx-app2
+          image: nginx
+# in this case that we create multiple replicaSets with one matchLabels at first we get the warning
+# but kubernetes will create pods for both of the replicas
+# for example for this two replicaSets we will have two pods for each one

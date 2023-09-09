@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: first-deployment
+spec:
+  selector:
+    matchLabels:
+      app: deployment-app
+  replicas: 5
+  template:
+    metadata:
+      labels:
+        app: deployment-app
+    spec:
+      containers:
+        - name: nginx-for-deployment
+          image: nginx
+
+# you can create a deployment by this command
+# sudo kubectl create -f deployment.yml
+# if you want to update the file and run the object you have to use apply command
+
+# the difference between create and apply command:
+# when using create command then you cant use another create command and kubectl tells you that the object is still exist
+# when you use apply command you can run apply command again if any change be there it will update the objects
+
+# sudo kubectl create -f file.yml
+# sudo kubectl apply -f file.yml
